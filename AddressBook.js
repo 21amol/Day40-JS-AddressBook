@@ -1,3 +1,7 @@
+"use strict";
+var ps = require("prompt-sync")
+var prompt = ps();
+
 class Contact{
     constructor(...params){
         this.firstName = params[0];
@@ -112,15 +116,45 @@ class Contact{
     }
 }
 
+
+function contactDetails(contact) {
+    console.log("Enter the Last Name :");
+    contact._lastName = prompt();
+    console.log("Enter the Address :");
+    contact._address = prompt();
+    console.log("Enter the City :");
+    contact._city = prompt();
+    console.log("Enter the State :");
+    contact._state = prompt();
+    console.log("Enter the Zip :");
+    contact._zip = prompt();
+    console.log("Enter the Phone No :");
+    contact._phoneno = prompt();
+    console.log("Enter the Email ID :");
+    contact._email = prompt();
+}
+
+function editContact() {
+    console.log("Enter the First Name :");
+    let firstName = prompt();
+    for(let contact of addressBookArr) {
+        if(contact._firstName == firstName){
+            console.log("Contact with First Name Found.");
+            contactDetails(contact);
+        } 
+    }
+}
+
+
 try{
     let contact1 = new Contact("Amol","Ghotale","Manjari","Pune","Maharashtra","412307","8657169656","amol9.ag@gmail.com");
-    console.log(contact1.toString());
+//    console.log(contact1.toString());
    
     let contact2 = new Contact("Rohit","Ghotale","Mudged","Latur","Maharashtra","414141","9021473464","rohit@gmail.com");
-    console.log(contact2.toString());
+//    console.log(contact2.toString());
 
     let contact3 = new Contact("Priya","Jadhav","Ekamba","Bidar","Karnataka","123456","9876543210","priya@gmail.com");
-    console.log(contact3.toString());
+//    console.log(contact3.toString());
 
     var addressBookArr = [];
     addressBookArr.push(contact1);
@@ -129,4 +163,7 @@ try{
 } catch(e) {
     console.log(e);
 }
+
+console.log(addressBookArr);
+editContact();
 console.log(addressBookArr);
