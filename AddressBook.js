@@ -6,7 +6,7 @@ class Contact{
         this.city = params[3];
         this.state = params[4];
         this.zip = params[5];
-        this.phoneno = params[6];
+        this.phoneNo = params[6];
         this.email = params[7];
     }
 
@@ -81,12 +81,12 @@ class Contact{
     set phoneNo(phoneNo) {
         let Pattern = RegExp('^[0-9]{2}|\s|[0-9]{10}$');
         if(Pattern.test(phoneNo)) {
-            this._phoneno = phoneNo;
+            this._phoneNo = phoneNo;
         } else throw 'Invalid Phone Number.';
     }
 
     get phoneNo() {
-        return this._phoneno;
+        return this._phoneNo;
     }
 
     set email(email){
@@ -107,7 +107,7 @@ class Contact{
             + " City= "+ this.city
             + " State= "+ this.state
             + " Zip= "+ this.zip
-            + " Phone No= "+ this.phoneNo
+            + " PhoneNo= "+ this.phoneNo
             + " Email = "+ this.email;
     }
 }
@@ -115,6 +115,18 @@ class Contact{
 try{
     let contact1 = new Contact("Amol","Ghotale","Manjari","Pune","Maharashtra","412307","8657169656","amol9.ag@gmail.com");
     console.log(contact1.toString());
+   
+    let contact2 = new Contact("Rohit","Ghotale","Mudged","Latur","Maharashtra","414141","9021473464","rohit@gmail.com");
+    console.log(contact2.toString());
+
+    let contact3 = new Contact("Priya","Jadhav","Ekamba","Bidar","Karnataka","123456","9876543210","priya@gmail.com");
+    console.log(contact3.toString());
+
+    var addressBookArr = [];
+    addressBookArr.push(contact1);
+    addressBookArr.push(contact2);
+    addressBookArr.push(contact3);
 } catch(e) {
     console.log(e);
 }
+console.log(addressBookArr);
