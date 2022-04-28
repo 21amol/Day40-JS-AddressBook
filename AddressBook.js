@@ -145,6 +145,20 @@ function editContact() {
     }
 }
 
+function deleteContact(){
+    console.log("Enter the First Name :");
+    let firstName = prompt();
+    for(let contact of addressBookArr) {
+        if(contact._firstName == firstName){
+            console.log("Contact with First Name Found.");
+            addressBookArr.splice(contact,1);
+            console.log("Contact Deleted.")
+        } else{
+            console.log("Contact with First Name Not Found.");
+        }
+    }
+}
+
 
 try{
     let contact1 = new Contact("Amol","Ghotale","Manjari","Pune","Maharashtra","412307","8657169656","amol9.ag@gmail.com");
@@ -165,5 +179,7 @@ try{
 }
 
 console.log(addressBookArr);
-editContact();
+// editContact();
+deleteContact();
+
 console.log(addressBookArr);
